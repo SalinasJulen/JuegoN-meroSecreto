@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ejercicio 7</title>
+</head>
+<body>
+ 
+
+    <script>
+
+        let secreto;
+        let intentos = 0;
+        let numPersona = -1;
+        let respuesta;
+        secreto = Math.floor(Math.random() * 100 + 1);
+        let volverJugar = true;
+
+        while (volverJugar){
+            for(intentos = 0;numPersona!=secreto;intentos++){
+                numPersona = parseInt(prompt("Escribe un número del 1 al 100"));
+                if(numPersona <=0){
+                    alert("Escribe un valor superior a 0");
+                }
+                if(numPersona > 100){
+                    alert("Escribe un valor inferior a 100");
+                }
+           
+                if(secreto > numPersona && numPersona > 0){
+                    alert("¡¡El número es mayor, escribe otro número!!");
+                }
+                if(secreto < numPersona && numPersona < 100){
+                    alert("¡¡El número es menor!! , escribe otro número");
+                }
+            }
+            
+            alert("¡¡Has Acertado!! , tu cantidad de intentos es " + intentos);
+            
+            respuesta =  prompt("¿Quieres jugar de nuevo? Escribe 'n' si no quieres jugar de nuevo y 's' si quieres jugar de nuevo").toLowerCase();
+            
+            if(respuesta === "n"){
+                volverJugar = false;
+                
+            }
+            else if(respuesta === "s"){
+                secreto = Math.floor(Math.random() * 100 + 1);
+                intentos = 0;
+                volverJugar = true;
+            }
+            else{
+                alert("No has escrito una s o una n, por lo que el juego se ha terminado");
+                volverJugar = false;
+            }
+
+        }
+
+        alert("El juego ha terminado");
+
+    </script>
+    
+</body>
+</html>
